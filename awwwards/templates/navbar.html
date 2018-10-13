@@ -1,0 +1,72 @@
+{% load bootstrap3 %}
+{% load static%}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <title>Sticky navbar</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">MENU</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false">User <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Activity</a></li>
+                            <li><a href="#">Collections</a></li>
+                            <li><a href="#">Notifications</a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li style="background-color:#19C4B7;"><a href="#">SUBMIT YOUR SITE</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+        <section class="sect">
+            <div>
+                <div class="box-piesite">
+                    <ul>
+                        <li class="design">
+                            <div class="piesite" id="pie_0" data-pie="2.04"></div>
+                        </li>
+                        <li class="usability">
+                            <div class="piesite" id="pie_2" data-pie="5.02"></div>
+                        </li>
+                        <li class="creativity">
+                            <div class="piesite" id="pie_1" data-pie="2.04"></div>
+                        </li>
+                        <li class="content">
+                            <div class="piesite" id="pie_3" data-pie="6.43"></div>
+                        </li>
+                        <li class="total">
+                            <div class="piesite" id="pie_4" data-pie="7.10"></div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
