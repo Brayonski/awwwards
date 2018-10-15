@@ -39,19 +39,22 @@
         </section>
     </div>
 
-    <div class="container-fluid row" >
+    <div class="container-fluid row">
         {% for award_item in images%}
-        <div class="col-md-4" style="background-color:#ffffff">
-            <div class="hovereffect">
+        <div class="col-md-4">
+            <div class="hovereffect" style="background-color:#ffffff">
                 <img class="img-responsive" src="{{ award_item.image.url }}" alt="Image" id="img{{award_item.id}}" alt="Image"
                     style="height:300px; width: 410px;">
+                    <br><br>
+                <div>
+                    <h5 style="float:left; font-family: 'Poiret One', cursive;">{{award_item.title}}</h5>
+                </div>
                 <div class="overlay">
                     <a class="info" href="#" style="-moz-border-radius:28px;-webkit-border-radius:28px; border-radius:28px; float:right">Collect</a>
-                    <a class="info" href="#" style="-moz-border-radius:28px;-webkit-border-radius:28px; border-radius:28px; float:right"><img src="/static/images/icons8-heart-outline-25 (2).png"></a>
+                    <a class="info" href="#" style="-moz-border-radius:28px;-webkit-border-radius:28px; border-radius:28px; float:right"><img
+                            src="/static/images/icons8-heart-outline-25 (2).png"></a>
                 </div>
             </div>
-
-            
         </div>
         {% endfor %}
     </div>
@@ -78,8 +81,8 @@
     }
 
     .hovereffect img {
-        display: block;
-        position: relative;
+        /* display: block; */
+        /* position: relative; */
         -webkit-transition: all 0.4s ease-in;
         transition: all 0.2s ease-in;
     }
