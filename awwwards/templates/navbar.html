@@ -1,72 +1,96 @@
-{% load bootstrap3 %}
-{% load static%}
+{% load bootstrap4 %}
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
-    <title>Sticky navbar</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <!-- fonts -->
+
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">MENU</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-
-                </ul>
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                            aria-expanded="false">User <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Activity</a></li>
-                            <li><a href="#">Collections</a></li>
-                            <li><a href="#">Notifications</a></li>
-                            <li><a href="#">Settings</a></li>
-                            <li><a href="#">Logout</a></li>
-                        </ul>
-                    </li>
-                    <li style="background-color:#19C4B7;"><a href="#">SUBMIT YOUR SITE</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-    <div class="container">
-        <section class="sect">
-            <div>
-                <div class="box-piesite">
-                    <ul>
-                        <li class="design">
-                            <div class="piesite" id="pie_0" data-pie="2.04"></div>
-                        </li>
-                        <li class="usability">
-                            <div class="piesite" id="pie_2" data-pie="5.02"></div>
-                        </li>
-                        <li class="creativity">
-                            <div class="piesite" id="pie_1" data-pie="2.04"></div>
-                        </li>
-                        <li class="content">
-                            <div class="piesite" id="pie_3" data-pie="6.43"></div>
-                        </li>
-                        <li class="total">
-                            <div class="piesite" id="pie_4" data-pie="7.10"></div>
-                        </li>
-
-                    </ul>
+    <div id="navbar" class="container-fluid">
+        <div class="row">
+            <div class="col-md-1" style="padding-top:15px; border-right:1px solid rgb(226, 225, 225); font-family: 'Encode Sans Expanded', sans-serif;">
+                <div class="">
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> CLOSE &times;</a>
+                        <li class="dropdown-divider"></li>
+                        <a href="#">About</a>
+                        <li class="dropdown-divider"></li>
+                        <a href="#">Services</a>
+                        <li class="dropdown-divider"></li>
+                        <a href="#">Clients</a>
+                        <li class="dropdown-divider"></li>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div id="main">
+                        <span style="cursor:pointer" onclick="openNav()">&#9776; MENU</span>
+                    </div>
                 </div>
             </div>
-        </section>
+            <div class="col-md-1"></div>
+            <div class="col-md-8" style=" padding-top:5px;text-align:center;font-family: 'Comfortaa', cursive; letter-spacing:2px;">
+                <div class="row">
+                    <div class="col-md-10">
+                        <a class="navbar-brand" href="#" style="font-size:30px; color:black;"><strong style="text-align:center" >awwwards.</strong></a>
+                    </div>
+                    <div class="col-md-2" style="padding-top:10px;">
+                        <div class="row">
+                            <div class="col-md-6" style="padding-top:5px;">
+                                <a href="" style="font-size:13px;">{{ user.username }}</a>
+                            </div>
+                            <div class="col-md-6">
+                                {% if request.user.is_authenticated %}
+                                <div class="dropdown">
+                                    <a class="btn btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false"><span style="cursor:pointer">&#9776;</span>
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Profile</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Activity</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Collections</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Notifications</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Settings</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="/logout">Logout <img style="width: 20px; float: right;"
+                                                src="https://image.flaticon.com/icons/png/512/126/126467.png" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% else %}
+                            <a class='btn btn-default' href="/accounts/login">Login</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2" style="padding-top:15px; background-color: #49c5b6; text-align:center">
+                <a href="{%url 'new-post'%}" style="color:white; font-size:14px; text-decoration: none; ">SUBMIT YOUR
+                    SITE!
+                </a>
+            </div>
+        </div>
     </div>
 </body>
+
+<script type="text/javascript">
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
+</script>
 
 </html>

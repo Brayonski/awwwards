@@ -7,7 +7,8 @@ class Projects(models.Model):
     description = models.TextField()
 
     def __str__(self):
-        return self.text
+        return self.title
+    
 
 class Profile(models.Model):
     profile_pic = models.ImageField()
@@ -15,4 +16,4 @@ class Profile(models.Model):
     contact = models.TextField()
 
     def __str__(self):
-        return self.text
+        return self.profile_pic

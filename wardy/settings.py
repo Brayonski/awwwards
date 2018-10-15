@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'bootstrap3',
+    'bootstrap4',
     'awwwards.apps.AwwwardsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
