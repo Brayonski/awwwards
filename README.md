@@ -4,7 +4,7 @@ Awwwards
 - - - -
 Author: [Brian Mutai](https://github.com/brayonski)
 ## Description
-[Awwwards](https://the-snaps.herokuapp.com/) This is a web app that users can post projects,view,rate and search fr detailed description of the project. 
+[Awwwards](https://awwwardy.herokuapp.com/) This is a web app that users can post projects,view,rate and search fr detailed description of the project. 
 
 ------------------------------------------------------------------------
 
