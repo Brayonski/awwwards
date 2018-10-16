@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'star_ratings',
     'bootstrap3',
     'bootstrap4',
     'awwwards.apps.AwwwardsConfig',
