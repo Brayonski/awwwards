@@ -82,7 +82,7 @@
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="#">Settings</a>
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="/logout">Logout <img style="width: 20px; float: right;"
+                                            <a class="dropdown-item" href="/accounts/login/">Logout <img style="width: 20px; float: right;"
                                                     src="https://image.flaticon.com/icons/png/512/126/126467.png" alt=""></a>
                                         </div>
                                     </div>
@@ -164,6 +164,20 @@ input:checked + .slider:before {
 </style>
 
 <script type="text/javascript">
+
+    var button = document.querySelector(".slider");
+    var isColored = false;
+
+    button.addEventListener("click", function () {
+        if (isColored) {
+            document.body.style.background = "white";
+            isColored = false;
+        } else {
+            document.body.style.background = "#848B85";
+            isColored = true;
+        }
+    });
+
     function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
         document.getElementById("main").style.marginLeft = "250px";
