@@ -38,7 +38,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'star_ratings',
     'bootstrap3',
     'bootstrap4',
     'awwwards.apps.AwwwardsConfig',
@@ -166,6 +165,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_REDIRECT_URL = 'home'
 
 #  Add configuration for static files storage using whitenoise
 

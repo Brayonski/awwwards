@@ -9,7 +9,6 @@ urlpatterns = [
     url(r'^new/post$', views.new_post, name='new-post'),
     url(r'^profile/(?P<user_id>\d+)?$', views.profile, name='profile'),
     url(r'^update/profile$', views.updateprofile, name='updateprofile'),
-    url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings˓→')),
 ]
 
 if settings.DEBUG:

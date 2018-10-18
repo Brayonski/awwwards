@@ -19,5 +19,6 @@ class Profile(models.Model):
     bio = models.TextField()
     contact = models.TextField()
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    
     def __str__(self):
         return self.profile_pic
