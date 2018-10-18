@@ -22,3 +22,17 @@ class Profile(models.Model):
     
     def __str__(self):
         return self.profile_pic
+
+class Review (models.Model):
+    RATING_CHOICES = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),  
+    )
+    project = models.ForeignKey(Projects)
+    pub_date = models.DateTimeField(auto_now_add=True,null=True)
+    user_name = models.CharField(max_length = 100)
+    comment = models.CharField(max_length=200)
+    rating = models.IntegerField(choices=RATING_CHOICES)

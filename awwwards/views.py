@@ -1,6 +1,6 @@
-from django.shortcuts import render,redirect,get_list_or_404
+from django.shortcuts import render,redirect,get_list_or_404,get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .forms import NewPostForm
+from .forms import NewPostForm, ReviewForm
 from .models import Projects,Profile
 from datetime import datetime
 from django.contrib.auth.models import User
@@ -56,4 +56,25 @@ def updateprofile(request):
         form = ProfileForm()
     return render(request, 'updateprofile.html',{"form":form})
 
-    
+def ratings_views(request, post_id):
+    project = get_object_or_404(Projects, pk=post_id)
+    posts= Projects.objects.all()
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            rate = form.save(commit=False)
+            rate.project = project
+            rate.user_name = request.user
+            rate.save()
+        return redirect('add_review',post_id)
+    else:
+        form=ReviewForm()
+    return render(request, 'review/review_detail.html',locals())
+def review_list(request):
+    latest_review_list = Review.objects.order_by('-pub_date')[:9]
+    context = {'latest_review_list':latest_review_list}
+    return render (request, 'review/review_list.html', context)
+
+def review_detail(request, review_id):  
+    review = get_object_or_404(Projects, pk=review_id)
+    return render(request, 'review/review_detail.html', {'review':review})

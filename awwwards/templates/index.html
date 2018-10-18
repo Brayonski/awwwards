@@ -46,7 +46,7 @@
     <div class="container-fluid row">
         {% for award_item in images%}
         <div class="col-md-4">
-            <div class="hovereffect" style="background-color:#ffffff">
+            <div class="hovereffect">
                 <img class="img-responsive" src="{{ award_item.image.url }}" alt="Image" id="img{{award_item.id}}" alt="Image"
                     style="height:300px; width: 410px;">
                 <br><br>
@@ -55,8 +55,13 @@
                     <h6 style="float:left; font-family: Poiret One">From {{award_item.location}}</h6>
                     <br>
                     <h6 style="border-bottom: 1px solid #D3D9D4"></h6>
-                    <img class="img-fluid rounded-circle" src="{{ request.user.profile.profile_pic.url }}" style="border-radius:50%;height: 6vh; width: 3.2vw">
-                    <h6 style="float:left; font-family: Poiret One">By {{request.user.username}}</h6>
+                    <img class="img-fluid rounded-circle" src="{{ award_item.user.profile.profile_pic.url }}" style="border-radius:50%;height: 6vh; width: 3.2vw">
+                    <h6 style="float:left; font-family: Poiret One">By {{award_item.user.username}}</h6>
+                </div>
+                <div class="gallery">
+                    {% for post in posts %}
+                    <h5>{{ post.review_set.count }} reviews ({{ post.average_rating | floatformat }} average rating)</h5>
+                    {% endfor %}
                 </div>
                 <div class="overlay">
                     <a class="info" href="#" style="-moz-border-radius:28px;-webkit-border-radius:28px; border-radius:28px; float:right">Collect</a>
@@ -64,6 +69,8 @@
                             src="/static/images/icons8-heart-outline-25 (2).png"></a>
                 </div>
             </div>
+            <a href="/review/{{award_item.id}}" style="-moz-border-radius:28px;-webkit-border-radius:28px; border-radius:28px;"><span
+                    class="myButton">Review</a>
         </div>
         {% endfor %}
     </div>
@@ -247,7 +254,7 @@
     .percent {
         position: absolute;
         top: 1em;
-        left:0em;
+        left: 0em;
         width: 100%;
         font-size: .3em;
         text-align: center;
