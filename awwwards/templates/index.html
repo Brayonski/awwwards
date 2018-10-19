@@ -15,7 +15,7 @@
 <body style="background-color:#F2FAF3">
     <div class="container-fluid first-content">
         <h5 style="color:#ffffff">Site of the day {{ date|date:'F-d-Y' }}</h5>
-        <div class="col-sm-4 col-md-4 navbar-right">
+        <div class="navbar-center" style="width:50vh;">
             <form class="navbar-form" role="search" action="{% url 'search_results' %}">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search Project" name="project">
