@@ -69,7 +69,7 @@ def ratings_views(request, post_id):
         return redirect('add_review',post_id)
     else:
         form=ReviewForm()
-    return render(request, 'review/review_detail.html',locals())
+    return render(request, 'review/review_detail.html',{"project":project},locals())
 def review_list(request):
     latest_review_list = Review.objects.order_by('-pub_date')[:9]
     context = {'latest_review_list':latest_review_list}
@@ -78,3 +78,13 @@ def review_list(request):
 def review_detail(request, review_id):  
     review = get_object_or_404(Projects, pk=review_id)
     return render(request, 'review/review_detail.html', {'review':review})
+
+def search_results(request):
+    if 'project' in request.GET and request.GET["project"]: 
+        search_term = request.GET.get("project")
+        searched_projects = Projects.search_by_title(search_term)
+        message = f"{search_term}"
+        return render(request, 'search.html',{"message":message, "projects": searched_projects})        
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html',{"message":message})

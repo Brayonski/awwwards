@@ -22,9 +22,9 @@ Author: [Brian Mutai](https://github.com/brayonski)
 + [x] View posted projects and their details
 + [x] post a project to be rated / reviewed
 + [x] View my profile page
-+ [ ] Rate and review other users projects
++ [x] Rate and review other users projects
 + [ ] Search for projets
-+ [ ] View projects overal score
++ [x] View projects overal score
 + [ ] Creating API endpoints
 
 

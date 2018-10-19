@@ -26,9 +26,13 @@
 
 </div>
 <div class="gallery">
-    {% for post in posts %}
-    <h5>{{ post.review_set.count }} reviews ({{ post.average_rating | floatformat }} average rating)</h5>
-    {% endfor %}
+    <h5>{{ project.review_set.count }} reviews ({{ project.average_rating | floatformat }} average rating)</h5>
+    <p>{{project.comment}}</p>
 </div>
+{% for review in project.review_set.all %}
+<div>
+    <em>{{ review.comment }}</em>
+    <h6>Rated {{ review.rating }} of 5 by {{ review.user_name }}</h6>
 </div>
+{% endfor %}
 {% endblock %}

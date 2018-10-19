@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^project/(\d+)/$',views.ratings_views,name='project'),
     url(r'^$', views.review_list, name='review_list'),
     url(r'^review/(?P<post_id>[0-9]+)/$', views.ratings_views, name='add_review'),
+    url(r'^search/', views.search_results, name='search_results'),
 ]
 
 if settings.DEBUG:
