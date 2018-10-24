@@ -19,6 +19,15 @@ class Projects(models.Model):
         awwwards = cls.objects.filter(title__icontains=search_term)
         return awwwards
     
+    def save_project(self):
+        self.save()  
+
+    def delete_project(self):
+        self.delete()
+
+    def update_project(self):
+        self.save()
+    
 
 class Profile(models.Model):
     profile_pic = models.ImageField()
@@ -28,6 +37,15 @@ class Profile(models.Model):
     
     def __str__(self):
         return self.profile_pic
+    
+    def save_profile(self):
+        self.save()  
+
+    def delete_profile(self):
+        self.delete()
+
+    def update_profile(self):
+        self.save()
 
 class Review (models.Model):
     RATING_CHOICES = (
@@ -37,8 +55,20 @@ class Review (models.Model):
         (4, '4'),
         (5, '5'),  
     )
-    project = models.ForeignKey(Projects)
+    project = models.ForeignKey(Projects,null=True)
     pub_date = models.DateTimeField(auto_now_add=True,null=True)
     user_name = models.CharField(max_length = 100)
     comment = models.CharField(max_length=200)
     rating = models.IntegerField(choices=RATING_CHOICES)
+
+    def __str__(self):
+        return self.user_name
+
+    def save_review(self):
+        self.save()  
+
+    def delete_review(self):
+        self.delete()
+
+    def update_review(self):
+        self.save()

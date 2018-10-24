@@ -1,3 +1,4 @@
+SECRET_KEY = 'p&m+37lf==y8e8v91&azd%z55sdh6c&7##s0g0w-ykd1f72ioa'
 """
 Django settings for wardy project.
 

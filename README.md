@@ -50,7 +50,7 @@ source virtual/bin/activate
 
 ### Installing dependencies
 ```bash
-pip3 install -r requirements
+pip3 install -r requirements.txt
 ```
 
 ### Running Tests
@@ -87,7 +87,13 @@ optional arguments:
 
 ## Technology used
 
-* [Django]
+* HTML
+* CSS
+* Python
+* Django
+* Postgres
+* javascript
+* Heroku
 
 ## Contributing
 
